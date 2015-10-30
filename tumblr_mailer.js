@@ -2,14 +2,23 @@ var fs  = require('fs'),
   csvParse = require('./csvParse'),
   ejs = require('ejs'),
   email = require('./email'),
-  tumblr = require('tumblr.js');
+  tumblr = require('tumblr.js'),
+  tumblrAPI = require('./tumblrAPI');
+
+// // Create Tumblr client
+// var tumblr_client = tumblr.createClient({
+//   consumer_key: 'OZ3tMvEFmiMBZtp9hlu0IkdWvUUmqazm61eoUjdhtYbIht9Z2u',
+//   consumer_secret: 'CXLU7tt90y8L8ONd4Y8YRHOzEGI32vm10b32BbweZ3u9Qts67w',
+//   token: 'TQQ8Ig8ZsS1KZGfZu36Cg5IsYxwWNbgqMqGaNkhT1buTS1kj2q',
+//   token_secret: 'MOZX8hcYUrwJfBujhf0Pt0CQxPcZf6PcUhTeqEYun31xlvqmGj'
+// });
 
 // Create Tumblr client
 var tumblr_client = tumblr.createClient({
-  consumer_key: 'OZ3tMvEFmiMBZtp9hlu0IkdWvUUmqazm61eoUjdhtYbIht9Z2u',
-  consumer_secret: 'CXLU7tt90y8L8ONd4Y8YRHOzEGI32vm10b32BbweZ3u9Qts67w',
-  token: 'TQQ8Ig8ZsS1KZGfZu36Cg5IsYxwWNbgqMqGaNkhT1buTS1kj2q',
-  token_secret: 'MOZX8hcYUrwJfBujhf0Pt0CQxPcZf6PcUhTeqEYun31xlvqmGj'
+  consumer_key: tumblrAPI.consumer_key,
+  consumer_secret: tumblrAPI.consumer_secret,
+  token: tumblrAPI.token,
+  token_secret: tumblrAPI.token_secret
 });
 
 var latestPosts = [];
